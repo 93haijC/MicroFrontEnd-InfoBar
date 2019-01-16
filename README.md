@@ -1,0 +1,2 @@
+# MicroFrontEnd-InfoBar
+InfoBar fragment
