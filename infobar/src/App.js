@@ -108,11 +108,29 @@ class ScriptBar extends Component {
   }
 }
 
+const Card = props => {
+  var style = { "background-color": props.color, "margin": "5px", "font-size": "15px", "text-align":"center" };
+  if (props.name === "CVD") {
+    style["border"] = "solid green";
+  }
+  return (
+    <div className="col-sm" style={style}>
+      {props.name}
+    </div>
+  );
+}
+
 class WorkflowBar extends Component {
   render() {
+    const steps = [{ id: 1, name: 'Start Call' }, { id: 2, name: 'CVD' }, { id: 3, name: 'Disablement Location' }, { id: 4, name: 'Coverage&Dispatch' }, { id: 5, name: 'Service Provider' }, { id: 6, name: 'Case Wrapup' }];
+    const stepItems = steps.map((step) =>
+      <Card key={step.id} name={step.name} color="#8fdbe7" />
+    );
     return (
-      <div>
-        this is Workflowbar
+      <div className="card">
+        <div className="row" style={{ "padding-left": "15px", "padding-right": "15px" }}>
+          {stepItems}
+        </div>
       </div>
     );
   }
